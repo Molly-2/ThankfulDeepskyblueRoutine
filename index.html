@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up & Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('1725658227125.jpg'); /* Add your background image URL */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .container {
+      width: 300px;
+      background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
+      padding: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      display: none;
+    }
+
+    #login-form, #signup-form {
+      display: none;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .link-container {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .link-container a {
+      font-size: 18px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .link-container button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .link-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .link-display {
+      margin-top: 10px;
+      font-weight: bold;
+      display: none;
+      text-align: center;
+    }
+
+    .description {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div id="signup-form" class="container">
+  <h1>Sign Up</h1>
+  <input type="text" id="signup-username" placeholder="Username" required>
+  <input type="password" id="signup-password" placeholder="Password" required>
+  <button onclick="signUp()">Sign Up</button>
+  <p style="text-align: center; margin-top: 10px;">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+</div>
+
+<div id="login-form" class="container">
+  <h1>Login</h1>
+  <input type="text" id="login-username" placeholder="Username" required>
+  <input type="password" id="login-password" placeholder="Password" required>
+  <button onclick="login()">Login</button>
+  <p style="text-align: center; margin-top: 10px;">Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></p>
+</div>
+
+<div id="link-viewer" class="container">
+  <h1>Link Viewer</h1>
+
+  <!-- Link with the name (c) -->
+  <div class="link-container">
+    <a href="#" onclick="showLink('https://medium-gen.onrender.com/generate?prompt=', 'link-display-c')">(c) - API Link</a>
+    <button onclick="copyLink('link-display-c')">Copy Link</button>
+    <p id="link-display-c" class="link-display"></p>
+  </div>
+
+  <!-- Additional Links with Cmd install -->
+  <div class="link-container">
+    <a href="#" onclick="showLink('https://pastebin.com/raw/RKsMSWzr', 'link-display-animal')">Cmd install animal.js</a>
+    <button onclick="copyLink('link-display-animal')">Copy Link</button>
+    <p id="link-display-animal" class="link-display"></p>
+  </div>
+  <div class="description">
+    <h3>Command: Cmd install animal.js</h3>
+    <p>This command installs the `animal.js` script from the provided link. The script likely contains functions or definitions related to animals.</p>
+  </div>
+
+  <div class="link-container">
+    <a href="#" onclick="showLink('https://pastebin.com/raw/HWWEU68H', 'link-display-movie')">Cmd install movie.js</a>
+    <button onclick="copyLink('link-display-movie')">Copy Link</button>
+    <p id="link-display-movie" class="link-display"></p>
+  </div>
+  <div class="description">
+    <h3>Command: Cmd install movie.js</h3>
+    <p>This command installs the `movie.js` script from the provided link. The script is likely related to movie data or movie-related functionalities.</p>
+  </div>
+
+  <div class="link-container">
+    <a href="#" onclick="showLink('https://pastebin.com/raw/0ddDHu05', 'link-display-advice')">Cmd install advice.js</a>
+    <button onclick="copyLink('link-display-advice')">Copy Link</button>
+    <p id="link-display-advice" class="link-display"></p>
+  </div>
+  <div class="description">
+    <h3>Command: Cmd install advice.js</h3>
+    <p>This command installs the `advice.js` script from the provided link. It likely provides advice or tips-related functionalities.</p>
+  </div>
+
+  <!-- Cmd install history.js -->
+  <div class="link-container">
+    <a href="#" onclick="showLink('https://pastebin.com/raw/XL1beNy5', 'link-display-history')">Cmd install history.js</a>
+    <button onclick="copyLink('link-display-history')">Copy Link</button>
+    <p id="link-display-history" class="link-display"></p>
+  </div>
+  <div class="description">
+    <h3>Command: Cmd install history.js</h3>
+    <p>This command installs the `history.js` script from the provided link. This script likely handles historical data or functionalities related to tracking and managing history.</p>
+  </div>
+
+  <!-- C it is intelligence AI -->
+  <div class="link-container">
+    <a href="#" onclick="showLink('https://paste.c-net.org/RatchedEducate', 'link-display-intelligence')">C it is intelligence AI</a>
+    <button onclick="copyLink('link-display-intelligence')">Copy Link</button>
+    <p id="link-display-intelligence" class="link-display"></p>
+  </div>
+  <div class="description">
+    <h3>Command: C it is intelligence AI</h3>
+    <p>This command seems to refer to an AI-related script or functionality. The script could involve artificial intelligence applications or utilities.</p>
+  </div>
+
+  <!-- Cmd install rhyme.js -->
+  <div class="link-container">
+    <a href="#" onclick="showLink('https://pastebin.com/raw/QdzE1W8Y', 'link-display-rhyme')">Cmd install rhyme.js</a>
+    <button onclick="copyLink('link-display-rhyme')">Copy Link</button>
+    <p id="link-display-rhyme" class="link-display"></p>
+  </div>
+  <div class="description">
+    <h3>Command: Cmd install rhyme.js</h3>
+    <p>This command installs the `rhyme.js` script from the provided link. The script likely provides functionalities related to generating or managing rhymes, possibly useful for poetry or songwriting.</p>
+  </div>
+
+  <!-- Cmd install password.js -->
+  <div class="link-container">
+    <a href="#" onclick="showLink('https://pastebin.com/raw/Xhpsexig', 'link-display-password')">Cmd install password.js</a>
+    <button onclick="copyLink('link-display-password')">Copy Link</button>
+    <p id="link-display-password" class="link-display"></p>
+  </div>
+  <div class="description">
+    <h3>Command: Cmd install password.js</h3>
+    <p>This command installs the `password.js` script from the provided link. The script likely relates to password management, generation, or security features.</p>
+  </div>
+
+  <!-- Cmd install girl.js -->
+  <div class="link-container">
+    <a href="#" onclick="showLink('https://pastebin.com/raw/xVEA7HkU', 'link-display-girl')">Cmd install girl.js</a>
+    <button onclick="copyLink('link-display-girl')">Copy Link</button>
+    <p id="link-display-girl" class="link-display"></p>
+  </div>
+  <div class="description">
+    <h3>Command: Cmd install girl.js</h3>
+    <p>This command installs the `girl.js` script from the provided link. The script is likely related to fetching or displaying images of girls.</p>
+  </div>
+</div>
+
+<script>
+  // Show Sign Up form by default
+  window.onload = function() {
+    showSignUp();
+  };
+
+  function showSignUp() {
+    document.getElementById('signup-form').style.display = 'block';
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('link-viewer').style.display = 'none';
+  }
+
+  function showLogin() {
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('link-viewer').style.display = 'none';
+  }
+
+  function signUp() {
+    const username = document.getElementById('signup-username').value;
+    const password = document.getElementById('signup-password').value;
+
+    if (username && password) {
+      // Store username and password in localStorage (for simplicity)
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
+      alert('Sign-up successful! Please log in.');
+      showLogin();
+    } else {
+      alert('Please fill in both fields.');
+    }
+  }
+
+  function login() {
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    if (username === storedUsername && password === storedPassword) {
+      alert('Login successful!');
+      showLinkViewer();
+    } else {
+      alert('Incorrect username or password.');
+    }
+  }
+
+  function showLinkViewer() {
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('link-viewer').style.display = 'block';
+  }
+
+  function showLink(link, displayId) {
+    const linkDisplay = document.getElementById(displayId);
+    let linkDisplays = document.getElementsByClassName('link-display');
+    for (let i = 0; i < linkDisplays.length; i++) {
+      linkDisplays[i].style.display = 'none';
+    }
+    linkDisplay.innerText = link;
+    linkDisplay.style.display = 'block';
+  }
+
+  function copyLink(displayId) {
+    const linkDisplay = document.getElementById(displayId);
+    const tempInput = document.createElement('input');
+    document.body.appendChild(tempInput);
+    tempInput.value = linkDisplay.innerText;
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+
+    alert('Link copied to clipboard!');
+  }
+</script>
+
+</body>
+</html>
